@@ -33,9 +33,8 @@ function bitcoin(input) {
         console.log(`Day of the first purchased bitcoin: ${firstBitcoin}`)
     }
     console.log(`Left money: ${myMoney.toFixed(2)} lv.`)
-
 }
 
-// bitcoin([100, 200, 300])
-// bitcoin([50, 100])
+bitcoin([100, 200, 300])
+bitcoin([50, 100])
 bitcoin([3124.15, 504.212, 2511.124])
