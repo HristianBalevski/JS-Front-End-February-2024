@@ -272,3 +272,248 @@ console.log(y); // Ще изпише "null"
 Важно е да се отбележи, че **undefined** и **null** са различни от типа данни "празен низ" (**''** или **""**). Те са стойности, които показват липса на стойност или невалидност на променлива.
 
 ---
+
+## 02.JS Arrays and Strings
+
+**What is an Array?**
+
+Масив в JavaScript е специален тип променлива, който ви позволява да съхранявате множество стойности в една променлива. Масивите могат да съдържат всякакъв вид данни, включително числа, низове, обекти или дори други масиви. Всяка стойност в масива се нарича елемент, и всеки елемент има индекс, който представлява неговата позиция в масива.
+<br>
+
+- Масивът е структура от данни, която съхранява колекция от елементи, достъпни чрез техните индекси.
+- Масивите са с нулева база, което означава, че първият елемент е на индекс 0, вторият елемент е на индекс 1 и така нататък.
+- Масивите в JavaScript могат динамично да нарастват или намаляват по размер, като се добавят или премахват елементи.
+- Можем да достъпваме елементите в масива, използвайки квадратни скоби [], ипосичим индекса на елемента, който искаме да достъпим.
+```
+// Creating an array
+let fruits = ['apple', 'banana', 'orange'];
+
+// Accessing elements
+console.log(fruits[0]); // Output: 'apple'
+console.log(fruits[1]); // Output: 'banana'
+console.log(fruits[2]); // Output: 'orange'
+
+// Modifying elements
+fruits[1] = 'grape'; // Change 'banana' to 'grape'
+console.log(fruits); // Output: ['apple', 'grape', 'orange']
+
+// Adding elements
+fruits.push('kiwi'); // Add 'kiwi' to the end of the array
+console.log(fruits); // Output: ['apple', 'grape', 'orange', 'kiwi']
+
+// Removing elements
+let removed = fruits.pop(); // Remove the last element ('kiwi') and return it
+console.log(removed); // Output: 'kiwi'
+console.log(fruits); // Output: ['apple', 'grape', 'orange']
+```
+<br>
+
+**Destructuring Syntax**
+<br>
+
+**Destructuring syntax** в JavaScript е мощен инструмент, който позволява лесно и елегантно да извличаме стойности от обекти или масиви и да ги присвояваме на променливи. Това е особено полезно, когато имаме обект или масив с много свойства или елементи и искаме бързо да достъпим само няколко от тях.
+```
+// Деструктуриране на обект
+const person = { name: 'Alice', age: 30 };
+const { name, age } = person;
+console.log(name); // Извежда: 'Alice'
+console.log(age); // Извежда: 30
+
+// Деструктуриране на масив
+const numbers = [1, 2, 3];
+const [first, second, third] = numbers;
+console.log(first); // Извежда: 1
+console.log(second); // Извежда: 2
+console.log(third); // Извежда: 3
+
+// Деструктуриране с оставащи елементи (rest operator)
+const [head, ...tail] = numbers;
+console.log(head); // Извежда: 1
+console.log(tail); // Извежда: [2, 3]
+```
+<br>
+
+В тези примери се използва синтаксисът за деструктуриране, където **{}** се използва за обекти, а **[]** се използва за масиви. По този начин можем лесно да извлечем и използваме стойностите на определени свойства или елементи от обект или масив, като ги присвоим на променливи.
+<br>
+
+**For-of Loop**
+
+The **for-of loop** в JavaScript е по-нова конструкция за обхождане на елементите в масиви, стрингове, итератори и други iterable обекти. Тя предоставя по-лесен и четим начин за обхождане на елементите в сравнение с традиционния **for** или **forEach** цикъл.
+```
+const numbers = [1, 2, 3, 4, 5];
+
+// Обхождане на елементите на масива
+for (const number of numbers) {
+    console.log(number);
+}
+// Изход: 1, 2, 3, 4, 5
+
+const str = 'Hello';
+
+// Обхождане на символите на низа
+for (const char of str) {
+    console.log(char);
+}
+// Изход: 'H', 'e', 'l', 'l', 'o'
+```
+**Methods**
+<br>
+Array methods в JavaScript са функции, които се прилагат върху масиви и могат да променят тяхното съдържание. Те предоставят удобен начин за манипулиране на данните в масивите, като добавят, премахват или променят елементите.
+<br>
+
+**push()**: Добавя един или повече елементи в края на масива.
+```
+const fruits = ['apple', 'banana'];
+fruits.push('orange');
+// Изход: ['apple', 'banana', 'orange']
+```
+<br>
+
+**pop()**: Премахва последния елемент от масива и го връща.
+```
+const fruits = ['apple', 'banana', 'orange'];
+const removedFruit = fruits.pop();
+// Изход: 'orange'
+// Състояние на масива след премахването: ['apple', 'banana']
+```
+<br>
+
+**shift()**: Премахва първия елемент от масива и го връща.
+```
+const fruits = ['apple', 'banana', 'orange'];
+const removedFruit = fruits.shift();
+// Изход: 'apple'
+// Състояние на масива след премахването: ['banana', 'orange']
+```
+<br>
+
+**unshift()**: Добавя един или повече елементи в началото на масива.
+```
+const fruits = ['banana', 'orange'];
+fruits.unshift('apple');
+// Изход: ['apple', 'banana', 'orange']
+```
+<br>
+
+**splice()**: Променя съдържанието на масива, като премахва или заменя елементи.
+```
+const fruits = ['apple', 'banana', 'orange'];
+fruits.splice(1, 1, 'grape', 'kiwi');
+// Състояние на масива след splice(): ['apple', 'grape', 'kiwi', 'orange']
+```
+<br>
+
+**reverse()**: Обръща реда на елементите в масива.
+```
+const numbers = [1, 2, 3, 4, 5];
+numbers.reverse();
+console.log(numbers); // Изход: [5, 4, 3, 2, 1]
+```
+<br>
+
+**join()**: Събира всички елементи на масива в низ, разделени с определен разделител.
+```
+const fruits = ['apple', 'banana', 'orange'];
+const joinedString = fruits.join(', ');
+console.log(joinedString); // Изход: 'apple, banana, orange'
+```
+<br>
+
+**slice()**: Извлича част от масива и създава нов масив.
+```
+const numbers = [1, 2, 3, 4, 5];
+const slicedArray = numbers.slice(1, 3);
+console.log(slicedArray); // Изход: [2, 3]
+```
+<br>
+
+**includes()**: Проверява дали масивът съдържа определен елемент и връща булев резултат.
+```
+const numbers = [1, 2, 3, 4, 5];
+const includesThree = numbers.includes(3);
+console.log(includesThree); // Изход: true
+```
+<br>
+
+**indexOf()**: Намира първото срещане на даден елемент в масива и връща неговия индекс, или -1, ако не е намерен.
+```
+const fruits = ['apple', 'banana', 'orange'];
+const indexOfBanana = fruits.indexOf('banana');
+console.log(indexOfBanana); // Изход: 1
+```
+<br>
+
+**forEach()**: Изпълнява подадена функция веднъж за всеки елемент в масива.
+```
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(num => console.log(num * 2)); // Извежда удвоените стойности на всички числа в масива
+```
+<br>
+
+**map()**: Създава нов масив като прилага подадена функция върху всеки елемент на оригиналния масив.
+```
+const numbers = [1, 2, 3, 4, 5];
+const doubledNumbers = numbers.map(num => num * 2);
+console.log(doubledNumbers); // Изход: [2, 4, 6, 8, 10]
+```
+<br>
+
+**find()**: Връща първия елемент в масива, който удовлетворява зададеното условие.
+```
+const numbers = [1, 2, 3, 4, 5];
+const greaterThanThree = numbers.find(num => num > 3);
+console.log(greaterThanThree); // Изход: 4
+```
+<br>
+
+**filter()**: Създава нов масив, съдържащ всички елементи от оригиналния масив, които удовлетворяват зададеното условие.
+```
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // Изход: [2, 4]
+```
+<br>
+
+**Regular Expressions in JS**
+<br>
+Regular expressions (regex) в JavaScript са мощен инструмент за работа с текстови данни. Те се използват за търсене на шаблони в низове, за заместване на текст или за валидация на формати на данни.
+<br>
+Търсене на съвпадения с определен шаблон в низ:
+```
+const str = 'The quick brown fox jumps over the lazy dog';
+const pattern = /fox/;
+const match = str.match(pattern);
+console.log(match); // Изход: ['fox']
+```
+Заместване на съвпадения с нов текст:
+```
+const str = 'The quick brown fox jumps over the lazy dog';
+const pattern = /fox/;
+const replacedStr = str.replace(pattern, 'cat');
+console.log(replacedStr); // Изход: 'The quick brown cat jumps over the lazy dog'
+```
+Проверка на дали низът отговаря на определен шаблон:
+```
+const str = '12345';
+const pattern = /^\d+$/; // Шаблон за цифри
+const isValid = pattern.test(str);
+console.log(isValid); // Изход: true
+```
+Извличане на информация от текст според определени шаблони:
+```
+const str = 'Name: John, Age: 30, Email: john@example.com';
+const pattern = /Age: (\d+)/; // Шаблон за възраст
+const match = str.match(pattern);
+console.log(match[1]); // Изход: '30'
+```
+Разделяне на низ според определен шаблон:
+```
+const str = 'apple,banana,orange';
+const pattern = /,/; // Шаблон за запетая
+const parts = str.split(pattern);
+console.log(parts); // Изход: ['apple', 'banana', 'orange']
+```
+
+---
+
+
