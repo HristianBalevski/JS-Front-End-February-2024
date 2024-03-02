@@ -1,6 +1,7 @@
 function sumElements(arr) {
-    const firstNum = arr[0]
-    const lastNum = arr[arr.length - 1]
+    arr = arr.map(Number)
+    const firstNum = arr.shift()
+    const lastNum = arr.pop()
 
     console.log(firstNum + lastNum);
 }
