@@ -505,6 +505,25 @@ console.log(evenNumbers); // Изход: [2, 4]
 ```
 <br>
 
+**reduce()**: Методът **reduce()** в JavaScript се използва за намаляване (редукция) на масив до единична стойност. Този метод прилага функция върху всеки елемент на масива, аккумулирайки резултата след всяко извикване и връщайки крайния резултат.
+```
+const numbers = [1, 2, 3, 4, 5];
+
+// Изчисляване на сумата на всички елементи в масива
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // Резултат: 15
+
+// Намиране на най-големия елемент в масива
+const max = numbers.reduce((maxValue, currentValue) => Math.max(maxValue, currentValue), -Infinity);
+console.log(max); // Резултат: 5
+
+// Конкатенация на всички елементи в масива в един низ
+const words = ["Hello", " ", "world", "!"];
+const concatenatedString = words.reduce((accumulator, currentValue) => accumulator + currentValue, "");
+console.log(concatenatedString); // Резултат: Hello world!
+```
+В този пример, при извикването на **reduce()**, първият аргумент е функция, която се прилага върху всеки елемент в масива. Вторият аргумент е началната стойност на акумулатора (в случая 0 или -Infinity). Функцията приема два параметъра: акумулатор и текущ елемент на масива. В края на изпълнението **reduce()** връща крайния резултат.
+
 **Regular Expressions in JS**
 <br>
 Regular expressions (regex) в JavaScript са мощен инструмент за работа с текстови данни. Те се използват за търсене на шаблони в низове, за заместване на текст или за валидация на формати на данни.
