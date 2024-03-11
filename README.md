@@ -754,11 +754,11 @@ Object.entries(cat); // [['name', 'Tom'], ['age', 5]]
 
 **06. JSON Methods**
 
-- Можем да превърнем обект в JASON формат използвайки JSON.stringify(object) method
+- Можем да превърнем обект в JSON формат използвайки JSON.stringify(object) method
 ```
 let text = JSON.stringify(obj);
 ```
-- Можем да превърнем и JASON формат в обект използвайки JSON.parse(text)method
+- Можем да превърнем JSON формат в обект използвайки JSON.parse(text)method
 ```
 let obj = JSON.parse(text);
 ```
