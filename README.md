@@ -821,17 +821,17 @@ delete assocArr['John Smith'];
   ▪ Преобразуване в масив за сортиране, филтриране и картографиране:
   ```
   let phonebook = { 'Tim': '0876566344',
-'Bill': '0896543112' };
-
-let entries = Object.entries(phonebook);
-console.log(entries); // Array of arrays with two elements each
-// [ ['Tim', '0876566344'],
-// ['Bill', '0896543112'] ]
-
-let firstEntry = entries[0];
-console.log(firstEntry[0]); // Entry key -> 'Tim'
-console.log(firstEntry[1]); // Entry value -> '0876566344'
-```
+  'Bill': '0896543112' };
+  
+  let entries = Object.entries(phonebook);
+  console.log(entries); // Array of arrays with two elements each
+  // [ ['Tim', '0876566344'],
+  // ['Bill', '0896543112'] ]
+  
+  let firstEntry = entries[0];
+  console.log(firstEntry[0]); // Entry key -> 'Tim'
+  console.log(firstEntry[1]); // Entry value -> '0876566344'
+  ```
 **10. Sorting By Key**
 
 - Масивът може да бъде сортиран с помощта на фунцкия за сравнение (compare function).
@@ -860,21 +860,6 @@ entries.sort(([keyA, valueA],[keyB, valueB]) => {
 
 Един клас може да съдържа свойства (данни) и методи (функции), които определят поведението на обектите, създадени от този клас. За да дефинираме клас в JavaScript, използваме ключовата дума class, следвана от името на класа и тяло, което съдържа свойства и методи.
 
-```
-class Animal {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  greet() {
-    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
-  }
-}
-
-// Създаване на обект от класа Animal
-let cat = new Animal("Whiskers", 5);
-cat.greet(); // Извежда: Hello, my name is Whiskers and I'm 5 years old.
 ```
 class Animal {
   constructor(name, age) {
