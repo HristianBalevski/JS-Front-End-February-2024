@@ -876,7 +876,21 @@ class Animal {
 let cat = new Animal("Whiskers", 5);
 cat.greet(); // Извежда: Hello, my name is Whiskers and I'm 5 years old.
 ```
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+// Създаване на обект от класа Animal
+let cat = new Animal("Whiskers", 5);
+cat.greet(); // Извежда: Hello, my name is Whiskers and I'm 5 years old.
+```
 
 
 
