@@ -584,7 +584,7 @@ console.log(newStr); // Output: JavaScript is cool!
 
 ---
 
-## Functions and Statements
+## 03. Functions and Statements
 
 **01.Functions Overview**
 
@@ -637,4 +637,244 @@ function printText(text){
 console.log(text);
 }
 ```
+
+**05. Arrow Functions**
+
+- Това е специален съкратен синтаксис. Те оперират само в контекста на скоупа, в който се намират и са полезни във функционалното програмиране.
+```
+let increment = x => x + 1;
+console.log(increment(5)); // 6
+
+let sum = (a, b) => a + b;
+console.log(sum(5, 6)); // 11
+```
+**06. Naming and Best Practices**
+
+- Името на функцията трябва да има смисъл, да отговаря на въпрса **"Какво прави фунцкията"**, и да спазва синтаксиса camelCase.
+
+**07. Functions – Best Practices**
+
+- Функцията трябва да извършва само една добре дефинирана задача!
+- Трябва да избягвам фунцкии по-дълги от един екран!
+- По-добре е да ги разделя на няколко по-кратки функции.
+
+```
+function printReceipt(){
+printHeader();
+printBody();
+printFooter();
+}
+```
+---
+
+## 04. Objects and Classes
+
+**01. What Are Objects**
+
+- Обектите са структурата на свързани данни или функционалност. Съдържа стойности, които са достъпни чрез стрингови ключове.
+- Стойностите на данните се наричат **properties**, а стойностите на функциите се наричат **methods**.
+- Можем да добавяме и премахваме свойство по време на изпълнение
+
+**02. Object Definition**
+
+- Можем да създадем обект с обектен литерал (object literal)
+```
+let person = { name:'Peter', age:20, height:183 };
+```
+- Mожем да дефинираме празен обект и да му добавим свойства по-късно.
+```
+let person = {};
+person.name ='Peter';
+person.age = 20;
+person.hairColor = 'black';
+
+Можем да добавим свойства и чрез стрингова индексация
+
+person['lastName'] = 'Parker';
+```
+
+**03. Methods of Objects**
+
+- Функциите в JavaScript обект се наричат методи. Можем да дефинираме методи, използвайки няколко синтаксиса.
+```
+let person = {
+sayHello: function() {
+console.log('Hi, guys');
+}
+}
+
+let person = {
+sayHello() {
+console.log('Hi, guys');
+}
+}
+```
+
+- Можем да добавим метод и към вече дефиниран обект.
+```
+let person = { name:'Peter', age: 20 };
+person.sayHello = () => console.log('Hi, guys');
+```
+**04. Built-in Method Library**
+
+- Вземане на масив с всчики имена на пропъртитата:
+```
+Object.keys(cat); // ['name', 'age']
+```
+
+- Вземане на масив с всички имена на стойостите:
+```
+Object.values(cat); // ['Tom', 5]
+```
+
+- Вземане на масив от всички пропъртите като key-value tuples:
+```
+Object.entries(cat); // [['name', 'Tom'], ['age', 5]]
+``` 
+
+**05. JSON - JavaScript Object Notation**
+
+- Файлов формат с отворен стандарт, който използва текст за предаване на обекти от данни.
+- JSON е самоописващ се и лесен за разбиране, той може да бъде използван в различни програмни езици и е независим от конкретния език за програмиране.
+
+**06. JSON Usage**
+
+- JSON се използва за обмен на данни между браузъра и сървара. Той е по-лек формат в сравнение с XML.
+- JavaScript има вградени функции за анализиране на JSON, така, че е лесен за използване.
+```
+{
+"name": "Ivan",
+"age": 25,
+"grades": {
+"Math": [2.50, 3.50],
+"Chemistry": [4.50]
+}
+}
+```
+
+**06. JSON Methods**
+
+- Можем да превърнем обект в JSON формат използвайки JSON.stringify(object) method
+```
+let text = JSON.stringify(obj);
+```
+- Можем да превърнем JSON формат в обект използвайки JSON.parse(text)method
+```
+let obj = JSON.parse(text);
+```
+
+**07. What is an Associative Array ?**
+
+Масивите, индексирани по низови ключове, съдържат набор от двойки [ключ => стойност].
+• Ключът е низ.
+• Стойността може да бъде от всякакъв тип.
+
+Асоциативният масив в JavaScript е просто обект, можем да го декларираме динамично.
+
+- Използват се кавички, ако ключът съдържа специални знаци.
+```
+let assocArr = {
+'one': 1,
+'two': 2,
+'three': 3,
+[key]: 6
+};
+```
+
+- Валидни начини за достъп на стойности чрез ключове.
+```
+assocArr['four'] = 4;
+
+assocArr.five = 5;
+
+let key = 'six';
+assocArr[key] = 6;
+```
+
+- Можем да използваме for-in цикъл, за да итерираме през ключовете.
+```
+let assocArr = {};
+assocArr['one'] = 1;
+assocArr['two'] = 2;
+assocArr['three'] = 3;
+for(let key in assocArr) {
+console.log(key + " = " + assocArr[key]);
+}
+```
+
+**08. Manipulating Associative Arrays**
+
+- Проверяваме дали има ключ.
+```
+let assocArr = { /* entries */ };
+if (assocArr.hasOwnProperty('John Smith')) { /* Key found */ }
+```
+
+- Премахване на записи:
+```
+delete assocArr['John Smith'];
+```
+
+**09. Sorting Associative Arrays**
+
+- Обектите не могат да бъдат сортирани; първо трябва да бъдат преобразувани.
+  ▪ Преобразуване в масив за сортиране, филтриране и картографиране:
+  ```
+  let phonebook = { 'Tim': '0876566344',
+  'Bill': '0896543112' };
+  
+  let entries = Object.entries(phonebook);
+  console.log(entries); // Array of arrays with two elements each
+  // [ ['Tim', '0876566344'],
+  // ['Bill', '0896543112'] ]
+  
+  let firstEntry = entries[0];
+  console.log(firstEntry[0]); // Entry key -> 'Tim'
+  console.log(firstEntry[1]); // Entry value -> '0876566344'
+  ```
+**10. Sorting By Key**
+
+- Масивът може да бъде сортиран с помощта на фунцкия за сравнение (compare function).
+  ▪ За да сортираме по ключ, използваме първия елемент на всеки запис.
+
+```
+entries.sort((a, b) => {
+keyA = a[0];
+keyB = b[0];
+// Perform comparison and return negative, 0 or positive
+});
+```
+
+- Можем също така и да деструктираме записите:
+```
+entries.sort(([keyA, valueA],[keyB, valueB]) => {
+// Perform comparison and return negative, 0 or positive
+});
+```
+
+**11. What Are Classes**
+
+В JavaScript, класовете са шаблони за създаване на обекти, които съдържат свойства и методи. Те представляват начин за създаване на обекти с определени характеристики и поведение. 
+
+Един клас може да съдържа свойства (данни) и методи (функции), които определят поведението на обектите, създадени от този клас. За да дефинираме клас в JavaScript, използваме ключовата дума class, следвана от името на класа и тяло, което съдържа свойства и методи.
+
+```
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+// Създаване на обект от класа Animal
+let cat = new Animal("Whiskers", 5);
+cat.greet(); // Извежда: Hello, my name is Whiskers and I'm 5 years old.
+```
+
+
+
 
