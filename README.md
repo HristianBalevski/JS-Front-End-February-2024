@@ -852,9 +852,7 @@ entries.sort(([keyA, valueA],[keyB, valueB]) => {
 });
 ```
 
-**11. Array and Object Destructuring**
-
-*12. What Are Classes**
+**11. What Are Classes**
 
 В JavaScript, класовете са шаблони за създаване на обекти, които съдържат свойства и методи. Те представляват начин за създаване на обекти с определени характеристики и поведение. 
 
