@@ -875,6 +875,50 @@ let cat = new Animal("Whiskers", 5);
 cat.greet(); // Извежда: Hello, my name is Whiskers and I'm 5 years old.
 ```
 
+## 05. DOM Introduction
 
+DOM - Document Object Model
 
+**01.Browser API**
 
+Browser Object Model (BOM)
+
+- Браузърите излагат някои обекти като window, screen, navigator, history, location, document, …
+
+**02.Global Context in the Browser**
+
+- The global object in the browser is window
+
+```
+let b = 8;
+console.log(this.b); // undefined
+```
+```
+var a = 5;
+console.log(this.a); // 5
+```
+```
+function foo() {
+console.log("Simple function call");
+console.log(this === window); // true
+}
+foo();
+```
+
+**03.Document with a Logical Tree**
+
+- **DOM** представя документа като **nodes** и **objects**
+  - По този начин езиците за програмиране могат да се свържат със страницата
+
+- HTML DOM е обектен модел за HTML. Той определя:
+  - HTML elements като objects
+  - Properties
+  - Methods
+  - Events
+
+**04.DOM Methods**
+
+- DOM methods:  действия, които можем да извършваме върху HTML елементи.
+- DOM Properties: стойности на HTML елементи, които можем да задаваме или променяме.
+
+**05.JavaScript може да взаимодейства с уеб страници чрез DOM API:**
