@@ -1038,6 +1038,89 @@ Node Package Manager (NPM) е стандартен пакетен мениджъ
 ---
 ## 07. Asynchronous Programming
 
+1. **Какво е асинхронно програмиране?**
+
+   - Асинхронното програмиране е начин на организиране на програмите, при който различните задачи могат да се изпълняват независимо една от друга, без да блокират основния поток на изпълнение.
+2. **Защо е важно асинхронното програмиране?**
+
+   - Асинхронното програмиране е важно, защото позволява на програмата да използва по-ефективно времето за изпълнение, като продължава да работи, докато чака отговор от външни източници като мрежови заявки, файлово вход/изход и други асинхронни операции.
+   
+3. **Какви са основните елементи на асинхронното програмиране?**
+
+   - **Async/await:** Ключовите думи в много съвременни езици за програмиране, които позволяват на програмистите да маркират части от кода си като асинхронни и да ги изпълняват асинхронно.
+   - **Promises/Futures:** Механизми за обработка на асинхронни операции и управление на техните резултати или грешки.
+   - **Callback функции:** Функции, които се предават като аргументи на други функции и се изпълняват по завършване на асинхронна операция.
+  
+   Примерен код:
+   ```
+   / Пример за използване на async/await в JavaScript
+
+// Асинхронна функция, която връща Promise
+async function fetchData() {
+    // Симулиране на заявка към API
+    let response = await fetch('https://api.example.com/data');
+    // Изчакване на отговора от заявката и парсиране на JSON
+    let data = await response.json();
+    return data;
+}
+
+// Извикване на асинхронната функция
+fetchData()
+    .then(data => {
+        console.log('Получени данни:', data);
+    })
+    .catch(error => {
+        console.error('Грешка при извличане на данни:', error);
+    });
+    ```
+Този пример демонстрира използването на асинхронно програмиране с async/await в JavaScript за извличане на данни от уеб API. Ключовото е, че програмата продължава да се изпълнява без да блокира основния поток, докато чака отговора от заявката към API.
+
+**Promises Basics**
+
+1. **Какво е Promise?**
+
+   - Promise е обект, който представлява асинхронна операция, която може да бъде завършена със успех (resolve) или неуспех (reject).
+
+2. **Защо използваме Promises?**
+
+   - Promises се използват за управление на асинхронни операции и обработка на техните резултати или грешки. Те правят кода по-четим и по-лесен за поддръжка, особено когато имаме верижни асинхронни операции.
+
+3. **Как се създава Promise?**
+
+   - Promise може да бъде създаден чрез използване на конструктора **Promise**. Той приема функция като аргумент, която в своя ред приема два аргумента: **resolve** и **reject**.
+
+4. **Основни методи на Promise:**
+
+   - **then()**: Използва се за обработка на успешно завършени асинхронни операции.
+   - **catch()**: Използва се за обработка на грешки, които се случват по време на изпълнение на Promise.
+   - **finally()**: Използва се за изпълнение на код, независимо дали Promise е завършил успешно или с грешка.
+  
+Примерен код:
+```
+// Пример за използване на Promise в JavaScript
+
+// Създаване на Promise
+const myPromise = new Promise((resolve, reject) => {
+    // Имитация на асинхронна операция (например, заявка към API)
+    setTimeout(() => {
+        const randomNumber = Math.random();
+        if (randomNumber < 0.5) {
+            resolve(randomNumber); // Успешно завършена операция
+        } else {
+            reject(new Error('Генерирано е грешка')); // Грешка при операцията
+        }
+    }, 1000);
+});
+
+// Използване на Promise с then() и catch()
+myPromise.then(result => {
+    console.log('Операцията е успешно завършена. Резултат:', result);
+}).catch(error => {
+    console.error('Възникна грешка при изпълнение на операцията:', error);
+});
+```
+Този пример демонстрира използването на Promise в JavaScript за имитиране на асинхронна операция със **setTimeout**. За обработка на резултата от операцията се използват методите **then()** и **catch()**.
+    
 **Promise**
 
 **.all()** - Returns a new promise that can be accessed as an array of resolved values of fulfilled promises.
@@ -1057,4 +1140,116 @@ Node Package Manager (NPM) е стандартен пакетен мениджъ
 **.resolve()** - Returns a new Promise object that turns into the value that was passed to the method.
 
 **.then()** - Returns a new Promise object.
+
+**AJAX & Fetch API**
+
+1. **AJAX (Asynchronous JavaScript and XML):**
+
+   - AJAX е технология, която позволява на уеб страници да правят асинхронни заявки към сървър без да е необходимо презареждане на цялата страница.
+   - Обикновено се използва XMLHTTPRequest (XHR) обект за създаване на AJAX заявки.
+
+Примерен код:
+```
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://api.example.com/data', true);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+        } else {
+            console.error('Грешка при извличане на данни:', xhr.status);
+        }
+    }
+};
+xhr.send();
+```
+2. **Fetch API:**
+
+   - Fetch API е нова и по-модерна замяна на XMLHTTPRequest, която предлага по-чист и по-лесен за използване синтаксис.
+   - Fetch използва Promise-based подход, който прави кода по-четим и по-лесен за манипулиране.
+
+Примерен код:
+```
+fetch('https://api.example.com/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Грешка при извличане на данни:', response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+```
+3. **Сравнение между AJAX и Fetch:**
+
+   - Fetch API предлага по-модерен и чист синтаксис в сравнение с XHR.
+   - Fetch API е по-мощен, защото е базиран на Promise, което прави обработката на данните и грешките по-удобна.
+   - AJAX е по-стара технология, но все още е широко използвана в много проекти, особено в по-стари уеб приложения.
+  
+**. ES6 Async/Await**
+
+ES6 внесе революционно подобрение на асинхронното програмиране с появата на ключовите думи **async** и **await**. 
+
+1. **async функции:**
+
+   - **async** ключовата дума се използва за деклариране на функция, която връща Promise.
+   - **async** функциите автоматично връщат Promise, който се разрешава със стойността, върната от функцията, или с грешка, ако функцията хвърли изключение.
+  
+Примерен код:
+```
+async function fetchData() {
+    return 'Hello, world!';
+}
+```
+2. **await оператор:**
+
+   - **await** се използва в async функции за изчакване на Promise да бъде разрешен преди продължаване на изпълнението на функцията.
+   - **await** може да бъде използван само в async функции.
+  
+Примерен код:
+```
+async function fetchData() {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    return data;
+}
+```
+3. **Грешки и обработка на грешки:**
+
+   - Грешки в **async** функции се хвърлят чрез хвърляне на грешка **throw Error** или чрез отхвърляне на Promise с **reject**.
+   - Грешките могат да бъдат обработвани с **try...catch** блокове или чрез използване на метода **.catch()** на Promise.
+  
+Примерен код:
+```
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Грешка при извличане на данни:', error);
+        throw error;
+    }
+}
+```
+4. **Използване на async/await с Promise.all:**
+
+   - **Promise.all()** се използва за изчакване на масив от Promises да бъдат разрешени.
+   - Можем да комбинираме **Promise.all()** с **async/await** за ефективно изпълнение на множество асинхронни заявки едновременно.
+  
+Примерен код:
+```
+async function fetchData() {
+    const [data1, data2] = await Promise.all([
+        fetch('https://api.example.com/data1').then(response => response.json()),
+        fetch('https://api.example.com/data2').then(response => response.json())
+    ]);
+    return { data1, data2 };
+}
+```
+Това са основните принципи на използването на **async/await** в ES6. Те правят асинхронното програмиране по-четимо и по-лесно за манипулиране.
 
