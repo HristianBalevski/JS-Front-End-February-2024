@@ -1034,3 +1034,27 @@ Node Package Manager (NPM) е стандартен пакетен мениджъ
 5. **Изпълняване на скриптове:** NPM ви позволява да дефинирате и изпълнявате собствени скриптове във вашия проект чрез секцията **"scripts"** във вашия **package.json** файл. Например, можете да дефинирате скрипт за стартиране на вашия уеб сървър или за изпълнение на тестове.
 
 6. **Версии на пакети:** NPM позволява ви да инсталирате специфични версии на пакети чрез указване на техните версии при инсталация, например **npm install package@1.0.0**.
+
+---
+## 07. Asynchronous Programming
+
+**Promise**
+
+**.all()** - Returns a new promise that can be accessed as an array of resolved values of fulfilled promises.
+
+**.allSettled()** - Returns a new Promise object that resolves to an array after all Promises in an iterable object have been resolved or rejected.
+
+**.any()** - Iterates over an iterableObject of Promises and stops at the first one that fulfills. The resulting value from that fulfilled Promise is resolved in the returned Promise object.
+
+**.catch()** - Returns a new Promise related to a previously rejected Promise in the chain. This is ideal for formatting error messages for potential Promise rejections.
+
+**.finally** - Returns a new Promise object after the previous Promise in the chain has been resolved or rejected. This last part of the chain will execute no matter what.
+
+**.race()** - Returns the first Promise in an iterableObject that is either resolved or rejected.
+
+**.reject()** - Returns a rejected Promise object with a given reason.
+
+**.resolve()** - Returns a new Promise object that turns into the value that was passed to the method.
+
+**.then()** - Returns a new Promise object.
+
