@@ -74,16 +74,52 @@
 // }
 
 
-function myDisplayer(something) {
-    return `The result is ${something}`;
-}
+// function myDisplayer(something) {
+//     return `The result is ${something}`;
+// }
+//
+//
+// function sum(num1, num2, callback) {
+//     let result = num1 + num2;
+//     return callback(result);
+// }
+//
+// console.log(sum(5, 5, myDisplayer))
+
+// function test(a, b) {
+//     if (a + b > 5) {
+//         return `The result is bigger than 5`;
+//     } else {
+//         return `The result is smaller than 5`;
+//     }
+// }
+//
+// setTimeout(function() {
+//     console.log(test(21, 2));
+// }, 3000);
 
 
-function sum(num1, num2, callback) {
-    let result = num1 + num2;
-    return callback(result);
-}
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('*');
+    }, 1000);
+});
 
-console.log(sum(5, 5, myDisplayer))
+const twoStars = (star) => {
+    return (star + star);
+};
+
+const oneDot = (star) => {
+    return (star + '.');
+};
+
+const print = (val) => {
+    console.log(val);
+};
+
+// Chaining them all together
+promise.then(twoStars).then(oneDot).then(print);
+
+
 
 
