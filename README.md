@@ -1051,25 +1051,23 @@ Node Package Manager (NPM) е стандартен пакетен мениджъ
    - **Promises/Futures:** Механизми за обработка на асинхронни операции и управление на техните резултати или грешки.
    - **Callback функции:** Функции, които се предават като аргументи на други функции и се изпълняват по завършване на асинхронна операция.
   
-   Примерен код:
+   Пример за използване на async/await в JavaScript:
    ```
-   / Пример за използване на async/await в JavaScript
-
-// Асинхронна функция, която връща Promise
-async function fetchData() {
-    // Симулиране на заявка към API
-    let response = await fetch('https://api.example.com/data');
-    // Изчакване на отговора от заявката и парсиране на JSON
-    let data = await response.json();
-    return data;
-}
-
-// Извикване на асинхронната функция
-fetchData()
-    .then(data => {
-        console.log('Получени данни:', data);
-    })
-    .catch(error => {
+   // Асинхронна функция, която връща Promise
+    async function fetchData() {
+        // Симулиране на заявка към API
+        let response = await fetch('https://api.example.com/data');
+        // Изчакване на отговора от заявката и парсиране на JSON
+        let data = await response.json();
+        return data;
+    }
+    
+    // Извикване на асинхронната функция
+    fetchData()
+        .then(data => {
+            console.log('Получени данни:', data);
+        })
+        .catch(error => {
         console.error('Грешка при извличане на данни:', error);
     });
     ```
