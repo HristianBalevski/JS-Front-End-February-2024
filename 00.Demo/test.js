@@ -99,26 +99,46 @@
 // }, 3000);
 
 
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve('*');
-    }, 1000);
-});
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('*');
+//     }, 1000);
+// });
+//
+// const twoStars = (star) => {
+//     return (star + star);
+// };
+//
+// const oneDot = (star) => {
+//     return (star + '.');
+// };
+//
+// const print = (val) => {
+//     console.log(val);
+// };
+//
+// // Chaining them all together
+// promise.then(twoStars).then(oneDot).then(print);
 
-const twoStars = (star) => {
-    return (star + star);
-};
+let myArray = [1,2,3,4,5,6];
 
-const oneDot = (star) => {
-    return (star + '.');
-};
+myArray.forEach(multiply)
+myArray.forEach(convertToString);
+myArray.forEach(display)
 
-const print = (val) => {
-    console.log(val);
-};
 
-// Chaining them all together
-promise.then(twoStars).then(oneDot).then(print);
+function multiply(element, index, array) {
+    array[index] = element * array[index];
+
+}
+
+function display(element) {
+    console.log(element);
+}
+
+function convertToString(element, index, array) {
+    array[index] = element.toString() + array[index];
+}
 
 
 
